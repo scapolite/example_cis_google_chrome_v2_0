@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<def-group>
+  <definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979500" version="1">
+    <metadata>
+      <title>(L1) Ensure 'Block third party cookies' is set to 'Enabled'</title>
+      <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_3.4_L1_Ensure_Block_third_party_cookies_is_set_to_Enabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+      <description>(L1) Ensure 'Block third party cookies' is set to 'Enabled'</description>
+    </metadata>
+    <criteria negate="false" operator="AND">
+      <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979500"/>
+    </criteria>
+  </definition>
+  <win:registry_state comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979500" version="1">
+    <win:type>reg_dword</win:type>
+    <win:value datatype="int" operation="equals">1</win:value>
+  </win:registry_state>
+  <win:registry_test check="all" check_existence="all_exist" comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979500" version="1">
+    <win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979500"/>
+    <win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979500"/>
+  </win:registry_test>
+  <win:registry_object comment="Ensure 'BlockThirdPartyCookies' is 'Windows: Registry Value' to '1'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979500" version="1">
+    <win:hive>HKEY_LOCAL_MACHINE</win:hive>
+    <win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+    <win:name>BlockThirdPartyCookies</win:name>
+  </win:registry_object>
+</def-group>

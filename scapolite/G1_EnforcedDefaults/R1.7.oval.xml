@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<def-group>
+  <definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36982400" version="1">
+    <metadata>
+      <title>(L1) Ensure 'Enable deprecated web platform features for a limited time' is set to 'Disabled'</title>
+      <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_1.7_L1_Ensure_Enable_deprecated_web_platform_features_for_a_limited_time_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+      <description>(L1) Ensure 'Enable deprecated web platform features for a limited time' is set to 'Disabled'</description>
+    </metadata>
+    <criteria negate="false" operator="AND">
+      <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982400"/>
+    </criteria>
+  </definition>
+  <win:registry_object comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982400" version="1">
+    <win:hive>HKEY_LOCAL_MACHINE</win:hive>
+    <win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome\EnableDeprecatedWebPlatformFeatures</win:key>
+    <win:name operation="pattern match">\d+</win:name>
+  </win:registry_object>
+  <win:registry_test check="all" check_existence="none_exist" comment="Ensure '\d+' is 'Existence Test' to 'none_exist'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36982400" version="1">
+    <win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36982400"/>
+  </win:registry_test>
+</def-group>

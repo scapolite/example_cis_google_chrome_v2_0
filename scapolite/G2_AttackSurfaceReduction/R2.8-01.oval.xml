@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<def-group>
+  <definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:42239200" version="1">
+    <metadata>
+      <title>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</title>
+      <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_2.8_L1_Ensure_Enable_saving_passwords_to_the_password_manager_is_Configured" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+      <description>(L1) Ensure 'Enable saving passwords to the password manager' is Configured</description>
+    </metadata>
+    <criteria negate="false" operator="AND">
+      <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239200"/>
+    </criteria>
+  </definition>
+  <win:registry_test check="all" check_existence="at_least_one_exists" comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:42239200" version="1">
+    <win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239200"/>
+    <win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239200"/>
+  </win:registry_test>
+  <win:registry_object comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:42239200" version="1">
+    <win:hive>HKEY_LOCAL_MACHINE</win:hive>
+    <win:key operation="case insensitive equals">SOFTWARE\Policies\Google\Chrome</win:key>
+    <win:name>PasswordManagerEnabled</win:name>
+  </win:registry_object>
+  <win:registry_state comment="Ensure 'PasswordManagerEnabled' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:42239200" version="1">
+    <win:type>reg_dword</win:type>
+    <win:value datatype="int" operation="equals">0</win:value>
+  </win:registry_state>
+</def-group>

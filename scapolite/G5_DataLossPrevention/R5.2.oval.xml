@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<def-group>
+  <definition class="compliance" id="oval:org.cisecurity.benchmarks.a_google_chrome:def:36979900" version="1">
+    <metadata>
+      <title>(L1) Ensure 'Import saved passwords from default browser on first run' is set to 'Disabled'</title>
+      <reference ref_id="xccdf_org.cisecurity.benchmarks_rule_5.2_L1_Ensure_Import_saved_passwords_from_default_browser_on_first_run_is_set_to_Disabled" ref_url="http://benchmarks.cisecurity.org" source="xccdf_org.cisecurity.benchmarks_benchmark_2.0.0_CIS_Google_Chrome_Benchmark"/>
+      <description>(L1) Ensure 'Import saved passwords from default browser on first run' is set to 'Disabled'</description>
+    </metadata>
+    <criteria negate="false" operator="AND">
+      <criterion negate="false" test_ref="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979900"/>
+    </criteria>
+  </definition>
+  <win:registry_object comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979900" version="1">
+    <win:hive>HKEY_LOCAL_MACHINE</win:hive>
+    <win:key operation="equals">SOFTWARE\Policies\Google\Chrome</win:key>
+    <win:name>ImportSavedPasswords</win:name>
+  </win:registry_object>
+  <win:registry_test check="all" check_existence="all_exist" comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:tst:36979900" version="1">
+    <win:object object_ref="oval:org.cisecurity.benchmarks.a_google_chrome:obj:36979900"/>
+    <win:state state_ref="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979900"/>
+  </win:registry_test>
+  <win:registry_state comment="Ensure 'ImportSavedPasswords' is 'Windows: Registry Value' to '0'" id="oval:org.cisecurity.benchmarks.a_google_chrome:ste:36979900" version="1">
+    <win:type>reg_dword</win:type>
+    <win:value datatype="int" operation="equals">0</win:value>
+  </win:registry_state>
+</def-group>
