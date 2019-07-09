@@ -47,10 +47,11 @@ SCAP datastream into the Scapolite format:
 - The following files are exports of the content which have been carried
   out with proof-of-concept tooling for working with `Scapolite`:
 
-  - `iase_win_server_2016_v1r7_scapolite_export.xlsx`
+  - `cis_chrome_benchmark_2_0_scapolite_export.xlsx`
 
     An Excel-representation of all rules of the STIG
-  - `iase_win_server_2016_v1r7_scapolite_export.pdf`
+
+  - `cis_chrome_benchmark_2_0_scapolite_export.pdf`
 
     A PDF representation of the STIG
 
